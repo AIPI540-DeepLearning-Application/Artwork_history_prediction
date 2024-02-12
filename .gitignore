@@ -1,2 +1,6 @@
 /venv
 .DS_Store
+/data_aug
+data.zip
+notebooks/resnet50_finetuned.pth
+notebooks/images
