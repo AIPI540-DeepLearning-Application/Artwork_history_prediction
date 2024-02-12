@@ -82,7 +82,14 @@ Introduce and compare the models here
 
 
 ### Inference
-We built a web interface using streamlit. You can input an image of an artwork, and it will attempt to predict the year in which the artwork was created.
+We built a web interface using `streamlit`. You can input an image of an artwork, and it will attempt to predict the year in which the artwork was created.
+
+![Alt text](./img/interface.png)
+
+
+The result of the prediction
+![Alt text](./img/show.png)
+
 
 
 
