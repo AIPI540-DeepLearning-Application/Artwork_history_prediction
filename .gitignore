@@ -4,3 +4,4 @@
 data.zip
 notebooks/resnet50_finetuned.pth
 notebooks/images
+/models/svm.joblib
