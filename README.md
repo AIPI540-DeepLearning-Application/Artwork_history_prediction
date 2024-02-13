@@ -50,11 +50,14 @@ Considering the unbalanced dataset, we adopt the **offline augmentation** method
 
 **Before:**
 
-![Alt text](./img/unbalanced_data.png){:height="50%" width="50%"}
+
+<img src="./img/unbalanced_data.png" alt="Description of your image" width=“50%” height="50%">
+
+<!-- ![Alt text](./img/unbalanced_data.png) -->
 
 **After:**
+<img src="./img/balanced.png" alt="Description of your image" width=“50%” height="50%">
 
-![Alt text](./img/balanced.png){:height="50%" width="50%"}
 
 ### Methodology
 We did reszie, flip, random crop, rotation and colorJitter to the image to augment and get a larger dataset.
