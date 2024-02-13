@@ -49,9 +49,12 @@ Due to the reason that NGA uses `JavaScript` and `Ajax` to generate content, usi
 Considering the unbalanced dataset, we adopt the **offline augmentation** method to enlarge the dataset. This method is suitable for smaller datasets. You will eventually increase the dataset by a certain multiple, which is equal to the number of conversions you make. For example, if I want to flip all my images, my dataset is equivalent to multiplying by 2.
 
 **Before:**
-![Alt text](./img/unbalanced_data.png)
+
+![Alt text](./img/unbalanced_data.png){:height="50%" width="50%"}
+
 **After:**
-![Alt text](./img/balanced.png)
+
+![Alt text](./img/balanced.png){:height="50%" width="50%"}
 
 ### Methodology
 We did reszie, flip, random crop, rotation and colorJitter to the image to augment and get a larger dataset.
@@ -87,7 +90,7 @@ SVM works by finding the best possible line (hyperplane) that separates the data
 **SVM Model result**
 1. F1 score: 0.66
 2. Confusion Matrix:
-![Alt text](./img/svm_cf.png)
+![Alt text](./img/svm_cf.png){:height="50%" width="50%"}
 
 
 
