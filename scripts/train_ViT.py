@@ -33,6 +33,7 @@ class ViT_fine_tuned:
         
     # load dataset
     def load_dataset(self):
+        print("started to get data...")
         ds = load_dataset("imagefolder", data_files=self.data_files)
         # split up training into training + validation + test
         splits = ds['train'].train_test_split(test_size=0.2)
@@ -45,11 +46,12 @@ class ViT_fine_tuned:
         self.train_ds = splits_2['train']
         self.val_ds = splits_2['test']
 
+    # map id and label
     def process_label(self):
         self.id2label = {id:label for id, label in enumerate(self.train_ds.features['label'].names)}
         self.label2id = {label:id for id,label in self.id2label.items()}
 
-
+    # config data augmentation parameter
     def config_transform(self):
         self.process_label()
         self.processor = ViTImageProcessor.from_pretrained("google/vit-base-patch16-224-in21k")
@@ -75,6 +77,7 @@ class ViT_fine_tuned:
                 ]
             )
 
+    # set transform
     def train_transforms(self,examples):
         examples['pixel_values'] = [self._train_transforms(image.convert("RGB")) for image in examples['image']]
         return examples
@@ -92,12 +95,13 @@ class ViT_fine_tuned:
 
 
 
-
+    # configure our custom classification head
     def collate_fn(self, examples):
         pixel_values = torch.stack([example["pixel_values"] for example in examples])
         labels = torch.tensor([example["label"] for example in examples])
         return {"pixel_values": pixel_values, "labels": labels}
-
+    
+    # set up training config
     def train_config(self):
         self.apply_transform()
         self.train_dataloader = DataLoader(self.train_ds, collate_fn=self.collate_fn, batch_size=4)
@@ -124,13 +128,13 @@ class ViT_fine_tuned:
         )
 
 
-
+    # define model's metrics: F1 score
     def compute_metrics(self, eval_pred):
         predictions, labels = eval_pred
         predictions = np.argmax(predictions, axis=1)
         return dict(accuracy=f1_score(predictions, labels,average='micro'))
 
-
+    # model training
     def train(self):
         self.train_config()
         self.trainer = Trainer(
@@ -145,16 +149,15 @@ class ViT_fine_tuned:
 
         self.trainer.train()
 
-    #evalution
+    # evalution
     def test(self):
         outputs = self.trainer.predict(self.test_ds)
-
-
 
         y_true = outputs.label_ids
         y_pred = outputs.predictions.argmax(1)
 
         labels = self.train_ds.features['label'].names
+
         cm = confusion_matrix(y_true, y_pred)
         disp = ConfusionMatrixDisplay(confusion_matrix=cm, display_labels=labels)
         disp.plot(xticks_rotation=45)
