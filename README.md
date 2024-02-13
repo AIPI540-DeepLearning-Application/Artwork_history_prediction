@@ -27,31 +27,41 @@ After you fork and git clone the project, You should do the following steps:
 ### Data Collection and Preprocessing
 
 1. Use a web scraper script based on `selenium` to collect artwork data from the NGA website (https://www.nga.gov/) and save it in an appropriate format, such as CSV. 
-
+<!-- <img src="./img/image.png" alt="Description of your image" width=“400” height="300"> -->
 ![NGA Website](./img/image.png)
 
 Due to the reason that NGA uses `JavaScript` and `Ajax` to generate content, using the `http.request` library will only retrieve the initial static HTML content and won't capture dynamically generated data. `Selenium`, by simulating user interactions with a browser, can load and execute JavaScript to retrieve the complete page content. Therefore, we get these images one by one using selenium.
 
+<!-- <img src="./img/image2.png" alt="Description of your image" width=“200” height="200"> -->
 ![Alt text](./img/image2.png)
 
 
 2. Preprocess the scraped data, including image processing and data cleaning. Ensure that the images in the dataset align with their corresponding year labels.
 
     2.1.  Firstly, we got the csv file that includes header columns of title, years, link. 
+
+    <!-- <img src="./img/image3.png" alt="Description of your image" width=“200” height="100"> -->
     ![Alt text](./img/image3.png)
 
     2.2 Clean them and got the corresponding label(year) with local image files'name
 
     2.3 Fetch the images and stored it into different label folders.
+    <!-- <img src="./img/folders.jpg" alt="Description of your image" width=“200” height="100"> -->
     ![Alt text](./img/folders.jpg)
 
 ### Data Augmentation
 Considering the unbalanced dataset, we adopt the **offline augmentation** method to enlarge the dataset. This method is suitable for smaller datasets. You will eventually increase the dataset by a certain multiple, which is equal to the number of conversions you make. For example, if I want to flip all my images, my dataset is equivalent to multiplying by 2.
 
 **Before:**
-![Alt text](./img/unbalanced_data.png)
+
+<img src="./img/unbalanced_data.png" alt="Description of your image" width=“200” height="300">
+
+<!-- ![Alt text](./img/unbalanced_data.png) -->
+
 **After:**
-![Alt text](./img/balanced.png)
+
+<img src="./img/balanced.png" alt="Description of your image" width=“200” height="200">
+
 
 ### Methodology
 We did reszie, flip, random crop, rotation and colorJitter to the image to augment and get a larger dataset.
@@ -82,12 +92,13 @@ We did reszie, flip, random crop, rotation and colorJitter to the image to augme
 
 SVM works by finding the best possible line (hyperplane) that separates the data into two classes. By using the one vs all method, we can use SVM to classify multiple classes. We used the `sklearn` library to implement the SVM model. 
 
-![Alt text](./img/svm.png)
+<img src="./img/svm.png" alt="Description of your image" width=“300” height="300">
 
 **SVM Model result**
 1. F1 score: 0.66
 2. Confusion Matrix:
-![Alt text](./img/svm_cf.png)
+<img src="./img/svm_cf.png" alt="Description of your image" width=“300” height="300">
+<!-- ![Alt text](./img/svm_cf.png){:height="50%" width="50%"} -->
 
 
 

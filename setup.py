@@ -6,7 +6,14 @@ def main():
     ViT = ViT_fine_tuned()
     ViT.train()
     ViT.test()
+    
     print("-----------------------SVM model-----------------------")
+    '''
+        The data for the svm model is not uploaded to the github repo due to size constraints
+        if you want to run the model, please download the data from the following link:
+        https://huggingface.co/datasets/AIPI540/data_with_aug
+        and put it under the root folder
+    '''
     svm_model=art_svm()
     svm_model.train()
 
