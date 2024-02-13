@@ -88,12 +88,13 @@ We did reszie, flip, random crop, rotation and colorJitter to the image to augme
 
 SVM works by finding the best possible line (hyperplane) that separates the data into two classes. By using the one vs all method, we can use SVM to classify multiple classes. We used the `sklearn` library to implement the SVM model. 
 
-![Alt text](./img/svm.png)
+<img src="./img/svm.png" alt="Description of your image" width=“300” height="300">
 
 **SVM Model result**
 1. F1 score: 0.66
 2. Confusion Matrix:
-![Alt text](./img/svm_cf.png){:height="50%" width="50%"}
+<img src="./img/svm_cf.png" alt="Description of your image" width=“300” height="300">
+<!-- ![Alt text](./img/svm_cf.png){:height="50%" width="50%"} -->
 
 
 
