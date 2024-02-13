@@ -4,8 +4,9 @@ import numpy as np
 from sklearn import svm
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, accuracy_score
+from sklearn.metrics import f1_score
 
-class svm:
+class art_svm:
     '''
     This class is used to train a SVM model on the artwork dataset
     '''
@@ -44,6 +45,7 @@ class svm:
 
     def split_data(self):
         X, y = self.load_data(self.data_folder)
+        print("finished loading data")
         
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0)
         return X_train, X_test, y_train, y_test
@@ -53,12 +55,23 @@ class svm:
         X_train, X_test, y_train, y_test = self.split_data()
         
         clf = svm.SVC(kernel='rbf')
+        print("fitting the model")
         clf.fit(X_train, y_train)
-
+        
         # predict on the test set
         y_pred = clf.predict(X_test)
 
         # print the classification report
         accuracy = accuracy_score(y_test, y_pred)
+        f1 = f1_score(y_test, y_pred, average='weighted')
+        
         print("accuracy:", accuracy)
+        print("f1 score:", f1)
         print("\classification report:\n", classification_report(y_test, y_pred))
+
+def main():
+    model = art_svm()
+    model.train()
+
+if __name__ == '__main__':
+    main()
