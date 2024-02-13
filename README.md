@@ -54,12 +54,12 @@ Considering the unbalanced dataset, we adopt the **offline augmentation** method
 
 **Before:**
 
-
 <img src="./img/unbalanced_data.png" alt="Description of your image" width=“200” height="300">
 
 <!-- ![Alt text](./img/unbalanced_data.png) -->
 
 **After:**
+
 <img src="./img/balanced.png" alt="Description of your image" width=“200” height="200">
 
 
