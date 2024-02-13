@@ -48,9 +48,9 @@ Due to the reason that NGA uses `JavaScript` and `Ajax` to generate content, usi
 ### Data Augmentation
 Considering the unbalanced dataset, we adopt the **offline augmentation** method to enlarge the dataset. This method is suitable for smaller datasets. You will eventually increase the dataset by a certain multiple, which is equal to the number of conversions you make. For example, if I want to flip all my images, my dataset is equivalent to multiplying by 2.
 
-    Before
+**Before:**
 ![Alt text](./img/unbalanced_data.png)
-    After
+**After:**
 ![Alt text](./img/balanced.png)
 
 ### Methodology
@@ -78,8 +78,27 @@ We did reszie, flip, random crop, rotation and colorJitter to the image to augme
 
 ### Model Train
 
-Introduce and compare the models here
+1. Machine Learning model - Support Vector Machine (SVM)
 
+SVM works by finding the best possible line (hyperplane) that separates the data into two classes. By using the one vs all method, we can use SVM to classify multiple classes. We used the `sklearn` library to implement the SVM model. 
+
+![Alt text](./img/svm.png)
+
+**SVM Model result**
+1. F1 score: 0.66
+2. Confusion Matrix:
+![Alt text](./img/svm_cf.png)
+
+
+
+2. Deep Learning model - VIT (Vision Transformer)
+
+
+#### Model Comparison
+| Model          | F1 score | Running Time |
+|---------------|----------------------------------| -------------------|
+| SVM     | 0.652   | 1:17:45 (20 epoch) |
+| VIT    | 0.985  | 4:01 |
 
 ### Inference
 We built a web interface using `streamlit`. You can input an image of an artwork, and it will attempt to predict the year in which the artwork was created.
