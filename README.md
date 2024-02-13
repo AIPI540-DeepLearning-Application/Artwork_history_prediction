@@ -93,6 +93,17 @@ SVM works by finding the best possible line (hyperplane) that separates the data
 
 2. Deep Learning model - VIT (Vision Transformer)
 
+The Vision Transformer (ViT) model adopts an innovative approach to apply the Transformer architecture to image classification tasks. In ViT, the input image is first divided into fixed-size small patches, similar to dividing text into words or subwords in natural language processing. To retain positional information, ViT introduces positional embeddings, which are added to the representations of the image patches before being fed into a standard Transformer model.
+
+The core of the Transformer model is the self-attention mechanism, which allows the model to consider information from all patches in the image while processing each patch, thereby capturing long-distance dependencies. The ability of this structure to directly utilize global information is one of the main advantages of ViT over traditional convolutional networks.
+
+![Alt text](./img/vit_architecture.jpg)
+
+**Fine-tuned VIT Model result**
+1. F1 score: 0.985
+2. Confusion Matrix:
+![Alt text](./img/ViT_cf.png)
+
 
 #### Model Comparison
 | Model          | F1 score | Running Time |
