@@ -40,14 +40,14 @@ Due to the reason that NGA uses `JavaScript` and `Ajax` to generate content, usi
 
     2.1.  Firstly, we got the csv file that includes header columns of title, years, link. 
 
-    <img src="./img/image3.png" alt="Description of your image" width=“200” height="100">
-    <!-- ![Alt text](./img/image3.png) -->
+    <!-- <img src="./img/image3.png" alt="Description of your image" width=“200” height="100"> -->
+    ![Alt text](./img/image3.png)
 
     2.2 Clean them and got the corresponding label(year) with local image files'name
 
     2.3 Fetch the images and stored it into different label folders.
-    <img src="./img/folders.jpg" alt="Description of your image" width=“200” height="100">
-    <!-- ![Alt text](./img/folders.jpg) -->
+    <!-- <img src="./img/folders.jpg" alt="Description of your image" width=“200” height="100"> -->
+    ![Alt text](./img/folders.jpg)
 
 ### Data Augmentation
 Considering the unbalanced dataset, we adopt the **offline augmentation** method to enlarge the dataset. This method is suitable for smaller datasets. You will eventually increase the dataset by a certain multiple, which is equal to the number of conversions you make. For example, if I want to flip all my images, my dataset is equivalent to multiplying by 2.
