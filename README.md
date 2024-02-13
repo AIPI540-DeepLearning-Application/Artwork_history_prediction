@@ -32,8 +32,8 @@ After you fork and git clone the project, You should do the following steps:
 
 Due to the reason that NGA uses `JavaScript` and `Ajax` to generate content, using the `http.request` library will only retrieve the initial static HTML content and won't capture dynamically generated data. `Selenium`, by simulating user interactions with a browser, can load and execute JavaScript to retrieve the complete page content. Therefore, we get these images one by one using selenium.
 
-<img src="./img/image2.png" alt="Description of your image" width=“200” height="200">
-<!-- ![Alt text](./img/image2.png) -->
+<!-- <img src="./img/image2.png" alt="Description of your image" width=“200” height="200"> -->
+![Alt text](./img/image2.png)
 
 
 2. Preprocess the scraped data, including image processing and data cleaning. Ensure that the images in the dataset align with their corresponding year labels.
